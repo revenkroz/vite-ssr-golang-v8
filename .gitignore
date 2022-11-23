@@ -1,0 +1,12 @@
+.DS_Store
+.vite-ssg-dist
+.vite-ssg-temp
+*.local
+dist/
+node_modules
+.idea/
+.vscode/
+*.log
+build
+
+server.mjs
