@@ -5,7 +5,7 @@ Minimal example of using V8 to render a Frontend App built with Vite.
 ## Used Packages
 
 - [v8go](https://github.com/rogchap/v8go) - Go bindings for V8 JavaScript engine
-- [Vitesse Lite](https://github.com/antfu/vitesse-lite) - Frontend App in Vue and Vite
+- [Vitesse Lite](https://github.com/antfu/vitesse-lite) - Frontend App Template written in Vue and built with Vite
 
 ## Covered features
 
@@ -55,9 +55,9 @@ Actually, it's used by Vite under the hood.
 
 Fastest one. The idea is to run SSR script, get function with sensitive args and run it.
 
-`iso` object has `Isolate *v8go.Isolate` and `RenderScript *v8go.UnboundScript` (it was compiled before).
-
 #### Go Code
+
+`iso` object has `Isolate *v8go.Isolate` and `RenderScript *v8go.UnboundScript` (it was compiled before).
 
 ```go
 // renderer.go
