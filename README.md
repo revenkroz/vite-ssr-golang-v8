@@ -133,7 +133,7 @@ func (r *Renderer) Render(urlPath string) (string, error) {
 	globalObject.Set("ssr", ssrObject)
 	
 	ctx := v8go.NewContext(iso.Isolate, globalObject)
-  defer ctx.Close()
+	defer ctx.Close()
 	
 	start := time.Now()
 	iso.RenderScript.Run(ctx)
