@@ -20,6 +20,8 @@ Minimal example of using V8 to render a Frontend App built with Vite.
 docker compose up
 ```
 
+Note: if there is some issues with building the image, remove `--platform=linux/amd64` options from Dockerfile. This was used to avoid issues when running on Apple M1 architecture.
+
 ## Keynotes
 
 ### Separate config for Vite Build
