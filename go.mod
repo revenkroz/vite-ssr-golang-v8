@@ -1,5 +1,5 @@
 module github.com/revenkroz/vite-ssr-golang
 
-go 1.18
+go 1.22
 
-require rogchap.com/v8go v0.7.0
+require rogchap.com/v8go v0.9.0

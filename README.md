@@ -17,10 +17,23 @@ Minimal example of using V8 to render a Frontend App built with Vite.
 ## How to run the example
 
 ```bash
-docker compose up
+docker compose up -d
+curl http://localhost:8080/hi/test
 ```
 
 Note: if there is some issues with building the image, remove `--platform=linux/amd64` options from Dockerfile. This was used to avoid issues when running on Apple M1 architecture.
+
+## Pros and Cons
+
+Pros:
+- No need to use Node.js
+- All in one binary
+
+Cons:
+- The more big js-bundle size the slower rendering
+- You can't use Vite features like hot module replacement
+- To build the server you need a lot of c-libs installed
+
 
 ## Keynotes
 
@@ -43,12 +56,12 @@ It's better to cache the required files in memory.
 
 ### Hot Reloading
 
-It's not possible to use hot reloading with V8. For frontend development it's better to use Vite directly and store code it in another repo. 
+It's not possible to use hot reloading with V8. For frontend development it's better to use Vite directly and store code it in another repo.
 For backend development use any watcher to rebuild all (e.g. [air](https://github.com/cosmtrek/air)).
 
 ### Build without Vite and with Go only
 
-Some cool features of Vite will be missing (e.g. Glob Import, Dynamic Import, hot module replacement, etc.), 
+Some cool features of Vite will be missing (e.g. Glob Import, Dynamic Import, hot module replacement, etc.),
 but it's possible to build the frontend application with [ESBuild](https://github.com/evanw/esbuild) - a Go-based bundler. It has a Go API and it's very fast.
 Actually, it's used by Vite under the hood.
 

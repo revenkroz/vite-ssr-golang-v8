@@ -1,0 +1,46 @@
+{
+  "type": "module",
+  "private": true,
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+  "scripts": {
+    "dev": "vite --port 3333 --open",
+    "lint": "eslint .",
+    "typecheck": "vue-tsc --noEmit",
+    "preview": "vite preview",
+    "test": "vitest",
+    "up": "taze major -I",
+    "build": "yarn run build:client && yarn run build:server",
+    "build:client": "vite build --ssrManifest --outDir ../dist/client --emptyOutDir",
+    "build:server": "vite build -c vite.config.prod.ts --outDir ../dist/server --emptyOutDir",
+    "build:server2": "vite build --ssr ./src/entry-server.ts --outDir ../dist/server2 --emptyOutDir"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.9.0",
+    "vue": "^3.4.23",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.15.0",
+    "@iconify-json/carbon": "^1.1.31",
+    "@types/node": "^20.12.7",
+    "@unocss/eslint-config": "^0.59.4",
+    "@unocss/eslint-plugin": "^0.59.4",
+    "@unocss/reset": "^0.59.4",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vue-macros/volar": "^0.18.18",
+    "@vue/test-utils": "^2.4.5",
+    "eslint": "^9.0.0",
+    "eslint-plugin-format": "^0.1.1",
+    "jsdom": "^24.0.0",
+    "taze": "^0.13.6",
+    "typescript": "^5.4.5",
+    "unocss": "^0.63.1",
+    "unplugin-auto-import": "^0.17.5",
+    "unplugin-vue-components": "^0.26.0",
+    "unplugin-vue-macros": "^2.9.1",
+    "unplugin-vue-router": "^0.8.6",
+    "vite": "^5.2.9",
+    "vitest": "^1.5.0",
+    "vue-tsc": "^2.0.13"
+  }
+}

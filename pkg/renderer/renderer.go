@@ -34,11 +34,21 @@ func (r *Renderer) Render(urlPath string) (string, error) {
 	renderCmd := fmt.Sprintf(`ssrRender("%s")`, urlPath)
 	val, err := ctx.RunScript(renderCmd, r.ssrScriptName)
 	if err != nil {
-		if jsErr, ok := err.(*v8go.JSError); ok {
-			err = fmt.Errorf("%v", jsErr.StackTrace)
-		}
-		return "", nil
+		return "", formatError(err)
 	}
 
-	return val.String(), nil
+	renderedHtml := ""
+
+	if val.IsPromise() {
+		result, err := resolvePromise(ctx, val, err)
+		if err != nil {
+			return "", formatError(err)
+		}
+
+		renderedHtml = result.String()
+	} else {
+		renderedHtml = val.String()
+	}
+
+	return renderedHtml, nil
 }
